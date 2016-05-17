@@ -13,6 +13,7 @@ var passport = require('passport');
 var secret = require('./config/secret');
 var User = require('./models/user');
 var Category = require('./models/category');
+var Product = require('./models/product');
 
 
 var app = express();
@@ -59,10 +60,12 @@ app.set('view engine', 'ejs');
 var mainRouter = require('./routes/main');
 var userRoutes = require('./routes/user');
 var adminRoutes = require('./routes/admin');
+var apiRoutes = require('./api/api');
 
 app.use(mainRouter);
 app.use(userRoutes);
 app.use(adminRoutes);
+app.use('/api',apiRoutes);
 
 
 
